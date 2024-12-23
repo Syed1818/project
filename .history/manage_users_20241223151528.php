@@ -43,6 +43,7 @@ $result = $conn->query($sql);
             min-height: 100vh;
             color: #f1f1f1; /* Light text */
         }
+
         .container {
             width: 80%;
             max-width: 1200px;
@@ -52,24 +53,6 @@ $result = $conn->query($sql);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             overflow: hidden;
-            position: relative; /* Add this to allow absolute positioning of child elements */
-        }
-
-        .back-btn {
-            display: inline-block;
-            font-size: 18px; /* Adjust the size of the arrow */
-            color: #1c1c1c; /* Black text color */
-            background-color: #ff7f00; /* Orange background */
-            padding: 10px 20px; /* Spacing around the button */
-            border-radius: 5px; /* Rounded corners */
-            text-decoration: none; /* Remove underline */
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-bottom: 20px; /* Add margin to separate from the table */
-        }
-
-        .back-btn:hover {
-            background-color: #e56d00; /* Darker orange on hover */
-            transform: scale(1.1); /* Slight zoom effect */
         }
 
         h1, h2 {
@@ -133,6 +116,24 @@ $result = $conn->query($sql);
             gap: 10px;
         }
 
+        .back-btn {
+            display: inline-block;
+            font-size: 18px; /* Adjust the size of the arrow */
+            color: #1c1c1c; /* Black text color */
+            background-color: #ff7f00; /* Orange background */
+            padding: 10px 20px; /* Spacing around the button */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #e56d00; /* Darker orange on hover */
+            transform: scale(1.1); /* Slight zoom effect */
+        }
 
         /* Add responsiveness */
         @media (max-width: 768px) {
@@ -162,9 +163,9 @@ $result = $conn->query($sql);
 </head>
 <body>
     <div class="container">
-    <a href="admin_dashboard.php" class="back-btn">Back</a>
         <h1>Manage Users</h1>
         <h2>User List</h2>
+        <a href="admin_dashboard.php" class="back-btn">&larr; Back</a>
         <a href="add_user.php" class="button">Add New User</a>
 
         <table>

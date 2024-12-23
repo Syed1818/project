@@ -43,6 +43,7 @@ $result = $conn->query($sql);
             min-height: 100vh;
             color: #f1f1f1; /* Light text */
         }
+
         .container {
             width: 80%;
             max-width: 1200px;
@@ -52,24 +53,6 @@ $result = $conn->query($sql);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             overflow: hidden;
-            position: relative; /* Add this to allow absolute positioning of child elements */
-        }
-
-        .back-btn {
-            display: inline-block;
-            font-size: 18px; /* Adjust the size of the arrow */
-            color: #1c1c1c; /* Black text color */
-            background-color: #ff7f00; /* Orange background */
-            padding: 10px 20px; /* Spacing around the button */
-            border-radius: 5px; /* Rounded corners */
-            text-decoration: none; /* Remove underline */
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-bottom: 20px; /* Add margin to separate from the table */
-        }
-
-        .back-btn:hover {
-            background-color: #e56d00; /* Darker orange on hover */
-            transform: scale(1.1); /* Slight zoom effect */
         }
 
         h1, h2 {
@@ -132,7 +115,21 @@ $result = $conn->query($sql);
             display: flex;
             gap: 10px;
         }
+        .back-btn {
+            display: inline-block;
+            font-size: 20px; /* Adjust the size of the arrow */
+            color: black; /* White text color */
+            background-color: #ff7f00; /* Blue background */
+            padding: 10px 15px; /* Spacing around the button */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
 
+        .back-btn:hover {
+            background-color:#e56d00; /* Darker blue on hover */
+            transform: scale(1.1); /* Slight zoom effect */
+        }
 
         /* Add responsiveness */
         @media (max-width: 768px) {
@@ -152,17 +149,12 @@ $result = $conn->query($sql);
             .button {
                 padding: 8px 16px;
             }
-
-            .back-btn {
-                font-size: 16px;
-                padding: 8px 16px;
-            }
         }
     </style>
 </head>
 <body>
+<a href="admin_dashboard.php" class="back-btn">⇦</a>
     <div class="container">
-    <a href="admin_dashboard.php" class="back-btn">Back</a>
         <h1>Manage Users</h1>
         <h2>User List</h2>
         <a href="add_user.php" class="button">Add New User</a>
@@ -185,7 +177,7 @@ $result = $conn->query($sql);
                                 <td>" . htmlspecialchars($row['email']) . "</td>
                                 <td>" . $row['created_at'] . "</td>
                                 <td class='actions'>
-                                    <a href='edit_user.php?id=" . $row['id'] . "'>Edit</a> |
+                                    <a href='edit_user.php?id=" . $row['id'] . "'>Edit</a> | 
                                     <a href='manage_users.php?delete_id=" . $row['id'] . "' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</a>
                                 </td>
                             </tr>";
@@ -199,3 +191,4 @@ $result = $conn->query($sql);
     </div>
 </body>
 </html>
+

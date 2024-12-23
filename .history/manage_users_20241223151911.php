@@ -162,7 +162,7 @@ $result = $conn->query($sql);
 </head>
 <body>
     <div class="container">
-    <a href="admin_dashboard.php" class="back-btn">Back</a>
+    <a href="admin_dashboard.php" class="back-btn">&larr; Back</a>
         <h1>Manage Users</h1>
         <h2>User List</h2>
         <a href="add_user.php" class="button">Add New User</a>
