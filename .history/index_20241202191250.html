@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Platform</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+        background-image: url("https://thebrooksgrouponline.com/wp-content/uploads/2022/04/LX-vs-elearning.png"); /* Example placeholder image */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 10rem 0;
+        position: relative;
+        }
+
+        /* Overlay Effect */
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        header p {
+            font-size: 2rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        /* Main Section */
+        main {
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .intro {
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            margin-top: 2rem;
+        }
+
+        .cta-buttons a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-buttons a:hover {
+            background-color: #45a049;
+        }
+
+        /* Featured Courses Section */
+        .courses {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-card h3 {
+            padding: 1rem;
+            background-color: #f9f9f9;
+            font-size: 1.25rem;
+        }
+
+        .course-card p {
+            padding: 0 1rem 1rem;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Header Section with Background Image -->
+    <header>
+        <h1>Welcome to E-Learning</h1>
+        <p>Empowering Learners, One Course at a Time</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="courses.php">Courses</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="intro">
+            <h2>Welcome to the Future of Learning</h2>
+            <p>At E-Learning, we offer a wide range of online courses to help you achieve your educational goals. Join thousands of students today and start learning at your own pace!</p>
+        </section>
+
+        <section class="cta-buttons">
+            <a href="register.html">Get Started Now</a>
+            <a href="courses.php">Explore Courses</a>
+        </section>
+
+        <!-- Featured Courses Section -->
+        <section class="courses">
+            <div class="course-card">
+                <img src="C:\Users\A SARA FATHIMA\Downloads\wd.jpg" alt="Course 1"> <!-- Replace with your image URL -->
+                <h3>Web Development</h3>
+                <p>Learn HTML, CSS, JavaScript, and more to build stunning websites.</p>
+            </div>
+            <div class="course-card">
+                <img src="C:\Users\A SARA FATHIMA\Downloads\ds.avif" alt="Course 2"> <!-- Replace with your image URL -->
+                <h3>Data Science</h3>
+                <p>Master Python, R, and Machine Learning techniques for data analysis.</p>
+            </div>
+            <div class="course-card">
+                <img src="C:\Users\A SARA FATHIMA\Downloads\gd.jpg" alt="Course 3"> <!-- Replace with your image URL -->
+                <h3>Graphic Design</h3>
+                <p>Create stunning visuals using tools like Photoshop, Illustrator, and more.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 E-Learning Platform. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+        <p>Contact Us: contact@elearning.com | Phone: +91 123 456 7890</p>
+    </footer>
+
+</body>
+</html>

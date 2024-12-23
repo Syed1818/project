@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <style>
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Profile Section */
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ff7f50;
+            margin-right: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-header p {
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+        /* About Section */
+        .about-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            color: black;
+            margin-bottom: 1rem;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 4rem;
+        }
+
+        .skills-section h2 {
+            font-size: 2rem;
+            color: black; /* Orange header */
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .skills-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .skill {
+            background-color: #333; /* Dark background for skill cards */
+            border-radius: 10px;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 200px;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill h3 {
+            font-size: 1.5rem;
+            color: #ff7f50; /* Orange text */
+        }
+
+        .skill p {
+            font-size: 1rem;
+            color: #f4f4f4; /* Light text for skill descriptions */
+        }
+
+        /* Social Media Section */
+        .social-media {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .social-media h2 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 2rem;
+        }
+
+        .social-media ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-media ul li {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .social-media ul li:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-media ul li a {
+            color: #333;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .social-media ul li a:hover {
+            color: #4CAF50;
+        }
+        .home-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .home-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 20px;
+            margin-top: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQGuGxKQycFC0g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1713798304352?e=1737590400&v=beta&t=i2s9TJBFsF-2XZcw2WneA0de2JTcgz8lsbHUMZ2WS6g" alt="Profile Picture">
+            <div>
+                <h1>Sara Fathima</h1>
+                <p>AI Engineer | Tech Enthusiast | Lifelong Learner</p>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <h2>About Me</h2>
+            <p>Hello! I'm Sara, a passionate AI Engineer with a strong background in building scalable web applications. I have experience with both front-end and back-end technologies, and I love solving complex problems with clean, efficient code. My goal is to continuously learn and stay updated with the latest trends in technology. I'm always excited about new challenges and opportunities to grow as a developer.</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <h2>My Skills</h2>
+            <div class="skills-list">
+                <div class="skill">
+                    <h3>Artificial Intelligence</h3>
+                    <p>Experience in machine learning, deep learning, and AI algorithms</p>
+                </div>
+                <div class="skill">
+                    <h3>Python</h3>
+                    <p>Proficient in Python for AI and data science applications</p>
+                </div>
+                <div class="skill">
+                    <h3>Data Science</h3>
+                    <p>Data analysis and model building using Python, R, and SQL</p>
+                </div>
+                <div class="skill">
+                    <h3>Machine Learning</h3>
+                    <p>Working knowledge of supervised, unsupervised learning, and reinforcement learning</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section class="social-media">
+            <h2>Connect with Me</h2>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/a-sara-fathima-a237592b4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bb9Yoh9yESqqOwGi0mVraZw%3D%3D" target="_blank">🔗</a></li>
+            </ul>
+        </section>
+        <a href="index.html" class="home-button">Home</a> 
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Sara Fathima. All Rights Reserved. | <a href="privacy-policy.html" style="color: white;">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

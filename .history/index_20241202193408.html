@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Platform</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column; /* Added to make the body a column flex container */
+            min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            padding-top: 3.2rem;
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            width: 100%;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #4CAF50;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .sidebar ul li a.active {
+            background-color: #4CAF50;
+        }
+
+        /* Toggle Button */
+        .toggle-btn {
+            position: absolute;
+            top: 0.8rem;
+            left: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Main Content Area */
+        .content {
+            flex: 1; /* Allow content to grow and take available space */
+            margin-left: 250px; /* Same width as the sidebar */
+            transition: margin-left 0.3s ease;
+        }
+
+        .content.sidebar-hidden {
+            margin-left: 0;
+        }
+
+        header {
+            background-image: url("https://thebrooksgrouponline.com/wp-content/uploads/2022/04/LX-vs-elearning.png");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 10 rem 0;
+            position: relative;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        header p {
+            font-size: 2rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        main {
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .intro {
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            margin-top: 2rem;
+        }
+
+        .cta-buttons a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-buttons a:hover {
+            background-color: #45a049;
+        }
+
+        .courses {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-card h3 {
+            padding: 1rem;
+            background-color: #f9f9f9;
+            font-size: 1.25rem;
+        }
+
+        .course-card p {
+            padding: 0 1rem 1rem;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            /* Removed position: absolute; */
+            /* Removed bottom: 0; */
+            /* Removed left: 0; */
+            /* Removed width: 100%; */
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Toggle Button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="courses.php">Courses</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content" id="content">
+        <!-- Header Section -->
+        <header>
+            <h1>Welcome to E-Learning</h1>
+            <p>Empowering Learners, One Course at a Time</p>
+        </header>
+
+        <!-- Main Section -->
+        <main>
+            <section class="intro">
+                <h2>Welcome to the Future of Learning</h2>
+                <p>At E-Learning, we offer a wide range of online courses to help you achieve your educational goals . Join thousands of students today and start learning at your own pace!</p>
+            </section>
+
+            <section class="cta-buttons">
+                <a href="register.html">Get Started Now</a>
+                <a href="courses.php">Explore Courses</a>
+            </section>
+
+            <section class="courses">
+                <div class="course-card">
+                    <img src="C:\Users\A SARA FATHIMA\Downloads\wd.jpg" alt="Course 1">
+                    <h3>Web Development</h3>
+                    <p>Learn HTML, CSS, JavaScript, and more to build stunning websites.</p>
+                </div>
+                <div class="course-card">
+                    <img src="C:\Users\A SARA FATHIMA\Downloads\ds.avif" alt="Course 2">
+                    <h3>Data Science</h3>
+                    <p>Master Python, R, and Machine Learning techniques for data analysis.</p>
+                </div>
+                <div class="course-card">
+                    <img src="C:\Users\A SARA FATHIMA\Downloads\gd.jpg" alt="Course 3">
+                    <h3>Graphic Design</h3>
+                    <p>Create stunning visuals using tools like Photoshop, Illustrator, and more.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 E-Learning Platform. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+        <p>Contact Us: contact@elearning.com | Phone: +91 123 456 7890</p>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+            sidebar.classList.toggle('hidden');
+            content.classList.toggle('sidebar-hidden');
+        }
+    </script>
+
+</body>
+</html>

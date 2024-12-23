@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EduSphere - E-Learning Platform</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/header.jpeg') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        nav .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #FF6347;
+        }
+
+        nav .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        nav .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav .nav-links a:hover {
+            color: #FF6347;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .button:hover {
+            background-color: #ff4500;
+            transform: translateY(-5px);
+        }
+        
+        .button a {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }        
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #FF6347;
+        }
+
+        #about {
+            background-color: #f9f9f9;
+            padding: 60px 20px;
+        }
+
+        #services {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: #FF6347;
+            margin-bottom: 15px;
+        }
+
+        #courses {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 60px 20px;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-card h3 {
+            padding: 1rem;
+            background-color: #f9f9f9;
+            font-size: 1.25rem;
+        }
+
+        .course-card p {
+            padding: 0 1rem 1rem;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #certifications {
+            background-color: #fff;
+            padding: 60px 20px;
+        }
+
+        .certification-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+        }
+
+        .certification-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .certification-card h3 {
+            padding: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact {
+            background-color: #f4f4f4;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background-color: #FF6347;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff4500;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer .social-icons {
+            margin: 10px 0;
+        }
+
+        footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        footer .social-icons a:hover {
+            color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>EduSphere</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="test1.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="courses.php">Courses</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="progress-tracker.php">Progress</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+        <div>
+            <h1>Welcome to EduSphere</h1>
+            <p>Your path to a brighter future begins here.</p>
+            <div class="button">
+                <a href="courses.php">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>EduSphere is dedicated to transforming the way students learn. Our platform provides personalized learning experiences, empowering students to achieve academic success.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-card">
+            <i class="fas fa-user-graduate"></i>
+            <h3>Personalized Learning</h3>
+            <p>We tailor learning experiences to each student's needs, helping them succeed at their own pace.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Interactive Resources</h3>
+            <p>Access a wide range of interactive educational tools and resources to enhance your learning journey.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-headset"></i>
+            <h3>Expert Support</h3>
+            <p>Our team of experts is available to guide and support students throughout their educational journey.</p>
+        </div>
+    </section>
+
+    <section id="courses">
+        <h2>Our Courses</h2>
+        <div class="course-card">
+            <img src="images/wd.jpg" alt="Web Development">
+            <h3>Web Development</h3>
+            <p>Learn HTML, CSS, JavaScript, and more to build stunning websites.</p>
+        </div>
+        <div class="course-card">
+            <img src="images/ds.avif" alt="Data Science">
+            <h3>Data Science</h3>
+            <p>Master Python, R, and Machine Learning techniques for data analysis.</p>
+        </div>
+        <div class="course-card">
+            <img src="images/gd.jpg" alt="Graphic Design">
+            <h3>Graphic Design</h3>
+            <p>Create stunning visuals using tools like Photoshop, Illustrator, and more.</p>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <p>Get certified and showcase your achievements to the world. Here are some of the certifications we offer:</p>
+        <div class="certification-card">
+            <img src="images/cc.jpg" alt="Web Development Certification">
+            <h3>Web Development Certification</h3>
+        </div>
+        <div class="certification-card">
+            <img src="images/cc2.jpg" alt="Data Science Certification">
+            <h3>Data Science Certification</h3>
+        </div>
+        <div class="certification-card">
+            <img src="images/cert3.jpg" alt="Graphic Design Certification">
+            <h3>Graphic Design Certification</h3>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>We would love to hear from you! Reach out to us with your questions or feedback.</p>
+        <div class="contact-form">
+            <form action="submit-form" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 EduSphere. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
